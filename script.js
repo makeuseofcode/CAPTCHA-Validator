@@ -1,5 +1,11 @@
+
 // document.querySelector() is used to select an element from the document using its ID
 let captchaText = document.querySelector('#captcha');
+var ctx = captchaText.getContext("2d");
+ctx.font = "30px Roboto";
+ctx.fillStyle = "#08e5ff";
+
+
 let userText = document.querySelector('#textBox');
 let submitButton = document.querySelector('#submitButton');
 let output = document.querySelector('#output');
@@ -15,7 +21,8 @@ let emptyArr = [];
 for (let i = 1; i <= 7; i++) {
     emptyArr.push(alphaNums[Math.floor(Math.random() * alphaNums.length)]);
 }
-captchaText.innerHTML = emptyArr.join('');
+var c = emptyArr.join('');
+ctx.fillText(emptyArr.join(''),captchaText.width/4, captchaText.height/2);
 
 
 // This event listener is stimulated whenever the user press the "Enter" button
@@ -24,7 +31,7 @@ captchaText.innerHTML = emptyArr.join('');
 userText.addEventListener('keyup', function(e) {
 	// Key Code Value of "Enter" Button is 13
     if (e.keyCode === 13) {
-        if (userText.value === captchaText.innerHTML) {
+        if (userText.value === c) {
             output.classList.add("correctCaptcha");
             output.innerHTML = "Correct!";
         } else {
@@ -38,7 +45,7 @@ userText.addEventListener('keyup', function(e) {
 // "Correct!" or "Incorrect, please try again" message is
 // displayed after validating the input text with CAPTCHA
 submitButton.addEventListener('click', function() {
-    if (userText.value === captchaText.innerHTML) {
+    if (userText.value === c) {
         output.classList.add("correctCaptcha");
         output.innerHTML = "Correct!";
     } else {
@@ -55,6 +62,8 @@ refreshButton.addEventListener('click', function() {
     for (let j = 1; j <= 7; j++) {
         refreshArr.push(alphaNums[Math.floor(Math.random() * alphaNums.length)]);
     }
-    captchaText.innerHTML = refreshArr.join('');
+    ctx.clearRect(0, 0, captchaText.width, captchaText.height);
+    c = refreshArr.join('');
+    ctx.fillText(refreshArr.join(''),captchaText.width/4, captchaText.height/2);
     output.innerHTML = "";
 });

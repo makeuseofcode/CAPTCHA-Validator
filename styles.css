@@ -6,7 +6,7 @@ body {
 }
 
 #captchaBackground {
-    height: 200px;
+    height: 220px;
     width: 250px;
     background-color: #2d3748;
     display: flex;
@@ -20,10 +20,16 @@ body {
 }
 
 #captcha {
-    margin-bottom: 1em;
+    height: 80%;
+    width: 80%;
     font-size: 30px;
     letter-spacing: 3px;
-    color: #08e5ff;
+    margin: auto;
+    display: block;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .center {
