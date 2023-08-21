@@ -22,23 +22,22 @@ let alphaNums = ['A', 'B', 'C', 'D', 'E', 'F', 'G',
                 'q', 'r', 's', 't', 'u', 'v', 'w', 
                 'x', 'y', 'z', '0', '1', '2', '3', 
                 '4', '5', '6', '7', '8', '9'];
-let emptyArr = [];
+
 
 // This loop generates a random string of 7 characters using alphaNums
 // Further this string is displayed as a CAPTCHA
+let emptyArr = [];
 for (let i = 1; i <= 7; i++) {
     emptyArr.push(alphaNums[Math.floor(Math.random() * alphaNums.length)]);
 }
 var c = emptyArr.join('');
-ctx.fillText(emptyArr.join(''),captchaText.width/4, captchaText.height/2);
-
+ctx.fillText(emptyArr.join(''), captchaText.width/4, captchaText.height/2);
 
 // This event listener is stimulated whenever the user press the "Enter" button
-// "Correct!" or "Incorrect, please try again" message is
+// "Correct!" or "Incorrect, please try again!" message is
 // displayed after validating the input text with CAPTCHA
 userText.addEventListener('keyup', function(e) {
-	// Key Code Value of "Enter" Button is 13
-    if (e.keyCode === 13) {
+    if (e.key === 'Enter') {
         if (userText.value === c) {
             output.classList.add("correctCaptcha");
             output.innerHTML = "Correct!";
