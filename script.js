@@ -1,15 +1,15 @@
 
 // document.querySelector() is used to select an element from the document using its ID
-let captchaText = document.querySelector('#captcha');
+let captchaText = document.getElementById('captcha');
 var ctx = captchaText.getContext("2d");
 ctx.font = "30px Roboto";
 ctx.fillStyle = "#08e5ff";
 
 
-let userText = document.querySelector('#textBox');
-let submitButton = document.querySelector('#submitButton');
-let output = document.querySelector('#output');
-let refreshButton = document.querySelector('#refreshButton');
+let userText = document.getElementById('textBox');
+let submitButton = document.getElementById('submitButton');
+let output = document.getElementById('output');
+let refreshButton = document.getElementById('refreshButton');
 
 
 // alphaNums contains the characters with which you want to create the CAPTCHA
