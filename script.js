@@ -43,13 +43,13 @@ userText.addEventListener('keyup', function(e) {
             output.innerHTML = "Correct!";
         } else {
             output.classList.add("incorrectCaptcha");
-            output.innerHTML = "Incorrect, please try again";
+            output.innerHTML = "Incorrect, please try again!";
         }
     }
 });
 
 // This event listener is stimulated whenever the user clicks the "Submit" button
-// "Correct!" or "Incorrect, please try again" message is
+// "Correct!" or "Incorrect, please try again!" message is
 // displayed after validating the input text with CAPTCHA
 submitButton.addEventListener('click', function() {
     if (userText.value === c) {
@@ -57,7 +57,7 @@ submitButton.addEventListener('click', function() {
         output.innerHTML = "Correct!";
     } else {
         output.classList.add("incorrectCaptcha");
-        output.innerHTML = "Incorrect, please try again";
+        output.innerHTML = "Incorrect, please try again!";
     }
 });
 
