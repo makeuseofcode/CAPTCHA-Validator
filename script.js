@@ -33,33 +33,31 @@ for (let i = 1; i <= 7; i++) {
 var c = emptyArr.join('');
 ctx.fillText(emptyArr.join(''), captchaText.width/4, captchaText.height/2);
 
+function submitCaptcha(){
+    if (userText.value === c) {
+        output.classList.remove("incorrectCaptcha");
+        output.classList.add("correctCaptcha");
+        output.textContent = "Correct!";
+    } else {
+        output.classList.remove("correctCaptcha");
+        output.classList.add("incorrectCaptcha");
+        output.textContent = "Incorrect, please try again!";
+    }
+}
+
 // This event listener is stimulated whenever the user press the "Enter" button
 // "Correct!" or "Incorrect, please try again!" message is
 // displayed after validating the input text with CAPTCHA
 userText.addEventListener('keyup', function(e) {
     if (e.key === 'Enter') {
-        if (userText.value === c) {
-            output.classList.add("correctCaptcha");
-            output.innerHTML = "Correct!";
-        } else {
-            output.classList.add("incorrectCaptcha");
-            output.innerHTML = "Incorrect, please try again!";
-        }
+        submitCaptcha()
     }
 });
 
 // This event listener is stimulated whenever the user clicks the "Submit" button
 // "Correct!" or "Incorrect, please try again!" message is
 // displayed after validating the input text with CAPTCHA
-submitButton.addEventListener('click', function() {
-    if (userText.value === c) {
-        output.classList.add("correctCaptcha");
-        output.innerHTML = "Correct!";
-    } else {
-        output.classList.add("incorrectCaptcha");
-        output.innerHTML = "Incorrect, please try again!";
-    }
-});
+submitButton.addEventListener('click', submitCaptcha);
 
 // This event listener is stimulated whenever the user press the "Refresh" button
 // A new random CAPTCHA is generated and displayed after the user clicks the "Refresh" button
