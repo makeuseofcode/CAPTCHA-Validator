@@ -59,3 +59,8 @@ body {
 .correctCaptcha {
     color: #7FFF00;
 }
+
+.google{
+    margin-top: 30px;
+    color: white;
+}

@@ -3,6 +3,9 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Google Recaptcha API-->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 
 <body>
@@ -12,12 +15,26 @@
             <canvas id="captcha">captcha text</canvas>
             <input id="textBox" type="text" name="text">
             <div id="buttons">
+
                 <input id="submitButton" type="submit">
                 <button id="refreshButton" type="submit">Refresh</button>
             </div>
+
+
             <span id="output"></span>
         </div>
     </div>
+<!-- Google Recaptcha-->
+    <div class="center google">
+        <h1>Google Recaptcha v2</h1>
+        <form onsubmit="getResponse()" >
+            <div class="g-recaptcha" id="widgetId1" data-sitekey="6Ld_Zx0pAAAAAIFeSlojRE4W3wUqioyfyS8f2aUJ"></div>
+            <br/>
+            <input type="submit" id="googleBtn" value="Submit">
+
+          </form>
+    </div>
+
     <script src="script.js"></script>
 </body>
 
