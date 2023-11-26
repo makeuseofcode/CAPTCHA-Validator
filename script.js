@@ -74,3 +74,13 @@ refreshButton.addEventListener('click', function() {
     ctx.fillText(refreshArr.join(''),captchaText.width/4, captchaText.height/2);
     output.innerHTML = "";
 });
+
+// Google Recaptcha Alert
+let getResponse = (e)=>{
+    if(grecaptcha.getResponse() != ""){
+        alert("Correct")
+        document.querySelector("#outputgoogle").innerHTML = "Coorect"
+
+    }
+
+}
